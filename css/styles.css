@@ -1,4 +1,4 @@
-body  {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,18 +22,50 @@ div {
     left: 10rem;
     top: 100px;
     position: absolute;
-    
+
 }
 
 .inputAndButtpnSection {
-    width: 400px;
+    width: 550px;
     height: 200px;
-    right: 0;
-    top: 0;
-    background-color: white;
+    right: 10px;
+    top: 10px;
+    background-color: whitesmoke;
     position: absolute;
+    border-radius: 10px;
+    opacity: 0.8;
+
+display: flex;
+
+   
+
+
+}
+
+.controls {
+    flex: 0 0 25%;
+    max-width: 40%;
+    
+
 }
 
 .btn {
+   margin: 5px;
+    min-width: 90%;
+    max-width: 100%;
+    max-height: 100%;
     
+}
+
+
+.progress-bar-section {
+    flex: 0 0 75%;
+    max-width: 68%;
+    min-height: 100%;
+    margin: 30px;;   
+
+}
+
+.progress {
+    margin-bottom: 20px;
 }
