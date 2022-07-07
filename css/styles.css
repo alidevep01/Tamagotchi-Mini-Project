@@ -9,23 +9,74 @@
 .main-container {
     font-family: 'Poppins', sans-serif;
 }
-.player-name{
+
+.player-name {
     text-align: center;
     border: 2px solid black;
-    margin: 10px 10px 0;
+    margin: 10px;
     position: absolute;
-    width: 18%;
+    width: fit-content;
+    padding: 10px;
     border-radius: 10px;
     background-color: white;
     opacity: 0.5;
 }
+
 /* ************************************************* Modal******************************************** */
 .modal-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 0, 0, 0.7);
     z-index: 10;
-    background-color: white;
-    opacity: 0.5;
-    position: relative;
+   
 }
+
+.modal-box {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    margin: 20%;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+    max-width: 80%;
+    width: 50%;
+    display: none;
+
+}
+
+.modal-box .close-btn {
+ align-self:flex-end;
+ display: inline-block;
+ cursor: pointer;
+ font-size: 40px;
+ transform: rotate(45deg);
+}
+
+.modal-box .rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.modal-box .submit-btn {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+  
+}
+
+.modal-box .submit-btn:hover {
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+}
+
 
 
 
@@ -166,15 +217,16 @@ img {
     .controls {
         flex: 0 0 40%;
         max-width: 40%;
-        
+
     }
 
     .inputAndButtpnSection {
         width: 95%;
         display: flex;
         margin-top: 50px;
-       
+
     }
+
     .btn.btn-outline-success:last-child {
         font-size: 12px;
         height: 36.5px;
@@ -182,10 +234,10 @@ img {
 
     #pokeball-closed {
         position: absolute;
-        bottom :0;
+        bottom: 0;
     }
 
-    .player-name{
+    .player-name {
         text-align: center;
         border: 2px solid black;
         margin: 10px 10px 0;
@@ -210,14 +262,16 @@ img {
     .controls {
         flex: 0 0 40%;
         max-width: 40%;
-        
+
     }
+
     .inputAndButtpnSection {
         width: 95%;
         display: flex;
         margin-top: 50px;
-       
+
     }
+
     .btn.btn-outline-success:last-child {
         font-size: 12px;
         height: 36.5px;
@@ -225,10 +279,10 @@ img {
 
     #pokeball-closed {
         position: absolute;
-        bottom :0;
+        bottom: 0;
     }
 
-    .player-name{
+    .player-name {
         text-align: center;
         border: 2px solid black;
         margin: 10px 10px 0;
@@ -252,14 +306,17 @@ img {
     .controls {
         flex: 0 0 40%;
         max-width: 40%;
-        
+
     }
+
     .inputAndButtpnSection {
         width: 95%;
         display: flex;
-        margin-top: 50px;
-       
+        margin: auto;
+        position: relative;
+
     }
+
     .btn.btn-outline-success:last-child {
         font-size: 12px;
         height: 36.5px;
@@ -267,15 +324,19 @@ img {
 
     #pokeball-closed {
         position: absolute;
-        bottom :0;
+        bottom: 0;
     }
 
-    .player-name{
+    .player {
+        display: flex;
+        justify-content: center;
+    }
+    .player-name {
         text-align: center;
         border: 2px solid black;
-        margin: 10px 10px 0;
-        position: absolute;
-        width: 90%;
+        margin: auto;
+        position: relative;
+        width: fit-content;
         border-radius: 10px;
         background-color: white;
         opacity: 0.5;
@@ -284,6 +345,7 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
+
     /* #myVideo {
         top: 100px;
         right: -500px;
@@ -297,14 +359,17 @@ img {
     .controls {
         flex: 0 0 40%;
         max-width: 40%;
-        
+
     }
+
     .inputAndButtpnSection {
         width: 95%;
         display: flex;
-        margin-top: 50px;
-       
+        margin: 20px;
+        position: relative;
+
     }
+
     .btn.btn-outline-success:last-child {
         font-size: 12px;
         height: 36.5px;
@@ -312,15 +377,19 @@ img {
 
     #pokeball-closed {
         position: absolute;
-        bottom :0;
+        bottom: 0;
     }
 
-    .player-name{
+    .player {
+        display: flex;
+        justify-content: center;
+    }
+    .player-name {
         text-align: center;
         border: 2px solid black;
-        margin: 10px 10px 0;
-        position: absolute;
-        width: 90%;
+        margin: auto;
+        position: relative;
+        width: fit-content;
         border-radius: 10px;
         background-color: white;
         opacity: 0.5;
