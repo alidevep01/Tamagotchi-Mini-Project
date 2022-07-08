@@ -89,10 +89,10 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 
 /* ***** Lights on/off (sleep)***** */
 
-function lightsOnOffToggle() {
-    let element = document.querySelector(".btn-outline-success").toggleAttribute
-    .
-}
+// function lightsOnOffToggle() {
+//     let element = document.querySelector(".btn-outline-success").toggleAttribute
+//     .
+// }
 
 
 
