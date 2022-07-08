@@ -21,7 +21,7 @@
 //on page load open the modal-box by changing diplay to flex
 window.addEventListener("load", () => {
     document.querySelector(".modal-box").style.display = "flex";
-
+  
 })
 
 // Take the input and apply it to input-name h2
@@ -107,18 +107,13 @@ const startButton = {
         document.getElementById("lightsOnVideo").style.display = "flex"
         //onClick start button hide closed-pokeball & dislay open-pokeball after 8 seconds
         setTimeout(() => {
-            document.getElementById("pokeball-open").style.display = "flex";
+            document.getElementById("pichu").style.display = "flex"
             document.getElementById("pokeball-closed").style.display = "none";
-            //hide open-pokeball and display pichu after first 8 seconds + 3 seconds
-            setTimeout(() => {
-                document.getElementById("pokeball-open").style.display = "none"
-                document.getElementById("pichu").style.display = "flex"
-            }, 3000)
-            //display pikachu and hide pichu after 8 seconds + 3 seconds + 10 seconds
+            //display pikachu and hide pichu after 8 seconds + 10 seconds
             let pikachuDisplay = setTimeout(() => {
                     document.getElementById("pikachu").style.display = "flex";
                     document.getElementById("pichu").style.display = "none";
-                    //display raichu and hide pikachu after 8 seconds + 3 seconds + 10 seconds + 10 seconds
+                    //display raichu and hide pikachu after 8 seconds + 10 seconds + 10 seconds
                     let raichuDisplay = setTimeout(() => {
                         document.getElementById("raichu").style.display = "flex";
                         document.getElementById("pikachu").style.display = "none";
