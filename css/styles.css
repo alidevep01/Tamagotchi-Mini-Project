@@ -117,7 +117,7 @@ img {
     right: 18%;
     bottom: 22%;
     animation: mymove 5s alternate-reverse infinite;
-  
+
 }
 
 #pokeball-closed {
@@ -143,10 +143,19 @@ img {
         right: 800px;
     }
 }
+
 @keyframes bounce-1 {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* ******************************************* Controls Section ****************************************** */
@@ -278,6 +287,26 @@ img {
         }
     }
 
+    #pichu,
+    #pikachu,
+    #raichu {
+        animation: bounce-1 4s infinite;
+    }
+
+    @keyframes bounce-1 {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
 }
 
 /* Mobile Medium */
@@ -322,6 +351,7 @@ img {
         opacity: 0.5;
 
     }
+
     img {
         animation: mymove 3s alternate-reverse infinite;
     }
@@ -333,6 +363,25 @@ img {
 
         to {
             right: 200px;
+        }
+    }
+    #pichu,
+    #pikachu,
+    #raichu {
+        animation: bounce-1 4s infinite;
+    }
+
+    @keyframes bounce-1 {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(0);
         }
     }
 }
@@ -385,6 +434,7 @@ img {
         opacity: 0.5;
 
     }
+
     img {
         animation: mymove 3s alternate-reverse infinite;
     }
@@ -396,6 +446,25 @@ img {
 
         to {
             right: 200px;
+        }
+    }
+    #pichu,
+    #pikachu,
+    #raichu {
+        animation: bounce-1 4s infinite;
+    }
+
+    @keyframes bounce-1 {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(0);
         }
     }
 }
@@ -452,6 +521,7 @@ img {
         opacity: 0.5;
 
     }
+
     img {
         animation: mymove 4s alternate-reverse infinite;
     }
@@ -463,6 +533,25 @@ img {
 
         to {
             right: 600px;
+        }
+    }
+    #pichu,
+    #pikachu,
+    #raichu {
+        animation: bounce-1 4s infinite;
+    }
+
+    @keyframes bounce-1 {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(0);
         }
     }
 }
