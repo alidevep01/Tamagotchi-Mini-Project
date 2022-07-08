@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
   
 })
 
+
 // Take the input and apply it to input-name h2
 // After clicking on submit close the modal-box(display:none) and change opacity of modal container to 0
 
@@ -88,7 +89,10 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 
 /* ***** Lights on/off (sleep)***** */
 
-
+function lightsOnOffToggle() {
+    let element = document.querySelector(".btn-outline-success").toggleAttribute
+    .
+}
 
 
 

@@ -116,8 +116,7 @@
 img {
     right: 18%;
     bottom: 22%;
-    animation: mymove 5s alternate-reverse infinite;
-
+    animation: mymove 6s alternate-reverse infinite;
 }
 
 #pokeball-closed {
