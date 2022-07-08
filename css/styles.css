@@ -52,10 +52,14 @@
 
 .modal-box .close-btn {
  align-self:flex-end;
- display: inline-block;
+ display: inline;
  cursor: pointer;
  font-size: 40px;
  transform: rotate(45deg);
+}
+
+.modal-box .modal-title {
+    display: inline;
 }
 
 .modal-box .rules {
@@ -92,43 +96,41 @@
     z-index: -1;
 }
 
+#lightsOnVideo, #lightsOffVideo{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    display: none;
+}
+
 /* ************************************************* Pokeball ******************************************** */
 .pokeball-Container {
     position: relative;
 }
 
 img {
-    left: 160px;
-    top: 80px;
+  right: 10%;
+  bottom: 25%;
 }
 
 #pokeball-closed {
     position: absolute;
-    width: 20vh;
+    width: 10rem;;
 
 }
 
 #pokeball-open {
     position: absolute;
-    width: 25rem;
+    width: 17rem;
     display: none;
 }
 
-#pichu {
+#pichu,  #pikachu, #raichu{
     position: absolute;
-    width: 20rem;
-    display: none;
-}
-
-#pikachu {
-    position: absolute;
-    width: 20rem;
-    display: none;
-}
-
-#raichu {
-    position: absolute;
-    width: 20rem;
+    width: 8rem;
     display: none;
 }
 

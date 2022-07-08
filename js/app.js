@@ -19,9 +19,9 @@
 /* ***************************************** Modal Section Start ********************************************* */
 
 //on page load open the modal-box by changing diplay to flex
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     document.querySelector(".modal-box").style.display = "flex";
-    
+
 })
 
 // Take the input and apply it to input-name h2
@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector(".submit-btn").addEventListener('click', () => {
     let inputName = document.getElementById("input-Name").value;
- document.querySelector(".player-name").innerText = inputName;
+    document.querySelector(".player-name").innerText = inputName;
     document.querySelector(".modal-container").style.display = "none";
-    
+
 })
 
 // save input to player name when user clicks enter
@@ -45,10 +45,9 @@ document.getElementById('input-Name').addEventListener('keypress', function (e) 
 });
 
 //close-btn
-document.querySelector(".close-btn").addEventListener("click",() => {
-document.querySelector(".modal-container").style.display = "none";
-console.log("click is working")
-document.querySelector(".player-name").style.display = "none"
+document.querySelector(".close-btn").addEventListener("click", () => {
+    document.querySelector(".modal-container").style.display = "none";
+    document.querySelector(".player-name").style.display = "none"
 })
 
 
@@ -60,7 +59,7 @@ document.querySelector(".player-name").style.display = "none"
 
 //when clicked on play time decrease Boredom progress-bar by one
 //when not clicked on play time increase progress-bar Boredom by one
-//when Boredom progress bar reaches 10 kill pet(pokemon)
+//when Boredom progress bar reaches 10 kill pet(pokemon) pause video Show the result
 
 /* ***** Play Time(boredom) ***** */
 
@@ -70,7 +69,7 @@ document.querySelector(".player-name").style.display = "none"
 
 //when clicked on feed me decrease eat progress-bar by one
 //when not clicked on feed me increase progress-bar eat by one
-//when eat progress bar reaches 10 kill pet(pokemon)
+//when eat progress bar reaches 10 kill pet(pokemon) pause video Show the result
 
 /* ***** Feed Me(Eat) ***** */
 
@@ -85,7 +84,7 @@ document.querySelector(".player-name").style.display = "none"
 //when lights off change button to green, when lights on change button to red
 //when clicked on lights on/off descrease sleep progress-bar by one
 //when not-clicked on lights on/off increase sleep progress-bar by one
-//when progress bar reached 10 kill pet(pokemon)
+//when progress bar reached 10 kill pet(pokemon) pause video Show the result
 
 /* ***** Lights on/off (sleep)***** */
 
@@ -94,3 +93,56 @@ document.querySelector(".player-name").style.display = "none"
 
 
 /* ***************************************** Controls Section End ********************************************* */
+
+/* ***************************************** Game Logic Section Start ********************************************* */
+
+//When clicked on start button start timer for the pokemon to hatch after 10 seconds
+//when hatched hide pokeball closed, display pokeball open, display next pokemon, hide pokeball open after 3 seconds
+
+/* ***** Start Button ***** */
+const startButton = {
+    pokeballOpen: document.querySelector(".btn-outline-danger").addEventListener("click", () => {
+        //playLightsOnVideo on click
+        document.getElementById("myVideo").style.display = "none"
+        document.getElementById("lightsOnVideo").style.display = "flex"
+        //onClick start button hide closed-pokeball & dislay open-pokeball after 8 seconds
+        setTimeout(() => {
+            document.getElementById("pokeball-open").style.display = "flex";
+            document.getElementById("pokeball-closed").style.display = "none";
+            //hide open-pokeball and display pichu after first 8 seconds + 3 seconds
+            setTimeout(() => {
+                document.getElementById("pokeball-open").style.display = "none"
+                document.getElementById("pichu").style.display = "flex"
+            }, 3000)
+            //display pikachu and hide pichu after 8 seconds + 3 seconds + 10 seconds
+            let pikachuDisplay = setTimeout(() => {
+                    document.getElementById("pikachu").style.display = "flex";
+                    document.getElementById("pichu").style.display = "none";
+                    //display raichu and hide pikachu after 8 seconds + 3 seconds + 10 seconds + 10 seconds
+                    let raichuDisplay = setTimeout(() => {
+                        document.getElementById("raichu").style.display = "flex";
+                        document.getElementById("pikachu").style.display = "none";
+                    }, 10000)
+                },
+                10000)
+
+        }, 8000)
+    })
+}
+
+
+
+
+
+
+
+
+
+//if clicked on play, feed and lights on off buttons call their respective function and evolve to next pokemon after 10 seconds(if none of the progress-bar reach 10 )
+//if any one progress bar reach 10 kill pet(pokemon) pause video Show the result
+
+
+
+
+//after evolved to raichu and and is alive for 10 seconds player wins(pause the video and show the result)
+/* ***************************************** Game Logic Section End ********************************************* */
