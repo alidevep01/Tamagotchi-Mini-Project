@@ -55,6 +55,11 @@ window.addEventListener("load", () => {
     document.querySelector(".modal-box").style.display = "flex";
 })
 
+//Declare intervals here
+let sleepInterval;
+let hungerInterval;
+let boredInterval;
+let ageInterval;
 const tamagotchi = {
     //when clicked on lights on/off button toggle video src to lights-on/out video according
     //when clicked on lights on/off descrease sleep progress-bar by one
@@ -71,16 +76,19 @@ const tamagotchi = {
         }
     },
     sleepUp() {
-        let setIntervalAll = setInterval(() => {
+     sleepInterval = setInterval(() => {
             document.getElementById("sleep").innerText = `Sleep: ${Math.ceil(pokemon.sleep /100 * 10)}`
             document.getElementById("sleep").style.width = pokemon.sleep + "%";
             pokemon.sleep++
-            if (pokemon.sleep === 100) {
+            if (pokemon.sleep >= 100) {
                 document.getElementById("pichu").style.display = "none"
                 document.getElementById("pikachu").style.display = "none"
                 document.getElementById("raichu").style.display = "none"
                 document.getElementById("pokemonDead").style.display = "flex";
-                clearInterval(setIntervalAll)
+                clearInterval(ageInterval)
+                clearInterval(boredInterval)
+                clearInterval(hungerInterval)
+                clearInterval(sleepInterval)
         
             }
         }, 900)
@@ -92,16 +100,19 @@ const tamagotchi = {
 
     /* ***** Feed Me(Eat) ***** */
     hungry() {
-        let setIntervalAll = setInterval(() => {
+         hungerInterval = setInterval(() => {
             document.getElementById("eat").innerText = `eat: ${Math.ceil(pokemon.hunger /100 * 10)}`
             document.getElementById("eat").style.width = pokemon.hunger + "%";
             pokemon.hunger++
-            if (pokemon.hunger === 100) {
+            if (pokemon.hunger >= 100) {
                 document.getElementById("pichu").style.display = "none"
                 document.getElementById("pikachu").style.display = "none"
                 document.getElementById("raichu").style.display = "none"
                 document.getElementById("pokemonDead").style.display = "flex";
-                clearInterval(setIntervalAll)
+                clearInterval(ageInterval)
+                clearInterval(boredInterval)
+                clearInterval(hungerInterval)
+                clearInterval(sleepInterval)
           
             }
         }, 800)
@@ -116,16 +127,20 @@ const tamagotchi = {
 
     /* ***** Play Time(boredom) ***** */
     bored() {
-        let setIntervalAll = setInterval(() => {
+         boredInterval = setInterval(() => {
             document.getElementById("boredom").innerText = `boredom: ${Math.ceil(pokemon.boredom /100 * 10)}`
             document.getElementById("boredom").style.width = pokemon.boredom + "%";
             pokemon.boredom++
-            if (pokemon.boredom === 100) {
+            console.log(pokemon.boredom)
+            if (pokemon.boredom >= 100) {
                 document.getElementById("pichu").style.display = "none"
                 document.getElementById("pikachu").style.display = "none"
                 document.getElementById("raichu").style.display = "none"
                 document.getElementById("pokemonDead").style.display = "flex";
-                clearInterval(setIntervalAll)
+                clearInterval(ageInterval)
+                clearInterval(boredInterval)
+                clearInterval(hungerInterval)
+                clearInterval(sleepInterval)
      
             }
         }, 500)
@@ -135,15 +150,16 @@ const tamagotchi = {
 
     },
     ageUp() {
-        let setIntervalAll = setInterval(() => {
+         ageInterval = setInterval(() => {
             document.getElementById("age").innerText = `Age: ${pokemon.age}`
             document.getElementById("age").style.width = pokemon.age + "%";
             pokemon.age++
         }, 1000)
         if (pokemon.boredom === 100 || pokemon.sleep === 100 || pokemon.hunger === 100) {
-            clearInterval(setIntervalAll)
-
-
+            clearInterval(ageInterval)
+            clearInterval(boredInterval)
+            clearInterval(hungerInterval)
+            clearInterval(sleepInterval)
         }
     }
 
@@ -202,16 +218,10 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 /* ***** Start Button ***** */
 const startButton = {
     pokeballOpen() {
-        document.querySelector(".btn-outline-danger").addEventListener("click", (event) => {
-
-            //playLightsOnVideo on click
-            event.target.disabled = true;
+       
             // document.getElementById("myVideo").style.display = "none"
             // document.getElementById("lightsOnVideo").style.display = "flex"   
-            tamagotchi.ageUp();
-            tamagotchi.hungry();
-            tamagotchi.sleepUp();
-            tamagotchi.bored()
+           
             //After clicked on START LightsOn/Off toggle
             let lightsOn = true;
             document.querySelector(".lightsOnOffBtn").addEventListener("click", (event) => {
@@ -240,15 +250,23 @@ const startButton = {
                     10000)
 
             }, 8000)
-        })
+        }
     }
-}
-
-
-startButton.pokeballOpen();
 
 
 
+
+
+document.querySelector(".btn-outline-danger").addEventListener("click", (event) => {
+
+    //playLightsOnVideo on click
+    event.target.disabled = true;
+    startButton.pokeballOpen(); 
+    tamagotchi.hungry();
+    tamagotchi.sleepUp();
+    tamagotchi.bored()
+    tamagotchi.ageUp();
+})
 
 
 //if clicked on play, feed and lights on off buttons call their respective function and evolve to next pokemon after 10 seconds(if none of the progress-bar reach 10 )
