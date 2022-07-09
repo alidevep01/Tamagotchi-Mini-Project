@@ -56,14 +56,6 @@ window.addEventListener("load", () => {
 })
 
 const tamagotchi = {
-    ageUp() {
-        setInterval(() => {
-            document.getElementById("age").innerText = `Age: ${pokemon.age}`
-            document.getElementById("age").style.width = pokemon.age + "%";
-            pokemon.age++
-        }, 1000)
-    },
-
     //when clicked on lights on/off button toggle video src to lights-on/out video according
     //when clicked on lights on/off descrease sleep progress-bar by one
     //when not-clicked on lights on/off increase sleep progress-bar by one
@@ -79,10 +71,18 @@ const tamagotchi = {
         }
     },
     sleepUp() {
-        setInterval(() => {
+        let setIntervalAll = setInterval(() => {
             document.getElementById("sleep").innerText = `Sleep: ${Math.ceil(pokemon.sleep /100 * 10)}`
             document.getElementById("sleep").style.width = pokemon.sleep + "%";
             pokemon.sleep++
+            if (pokemon.sleep === 100) {
+                document.getElementById("pichu").style.display = "none"
+                document.getElementById("pikachu").style.display = "none"
+                document.getElementById("raichu").style.display = "none"
+                document.getElementById("pokemonDead").style.display = "flex";
+                clearInterval(setIntervalAll)
+        
+            }
         }, 900)
     },
 
@@ -92,14 +92,22 @@ const tamagotchi = {
 
     /* ***** Feed Me(Eat) ***** */
     hungry() {
-        setInterval(() => {
-                document.getElementById("eat").innerText = `eat: ${Math.ceil(pokemon.hunger /100 * 10)}`
-                document.getElementById("eat").style.width = pokemon.hunger + "%";
-                pokemon.hunger++
-            }, 800),
-            document.querySelector(".feedMeBtn").addEventListener("click", () => {
-                pokemon.hunger--
-            })
+        let setIntervalAll = setInterval(() => {
+            document.getElementById("eat").innerText = `eat: ${Math.ceil(pokemon.hunger /100 * 10)}`
+            document.getElementById("eat").style.width = pokemon.hunger + "%";
+            pokemon.hunger++
+            if (pokemon.hunger === 100) {
+                document.getElementById("pichu").style.display = "none"
+                document.getElementById("pikachu").style.display = "none"
+                document.getElementById("raichu").style.display = "none"
+                document.getElementById("pokemonDead").style.display = "flex";
+                clearInterval(setIntervalAll)
+          
+            }
+        }, 800)
+        document.querySelector(".feedMeBtn").addEventListener("click", () => {
+            pokemon.hunger--
+        })
     },
 
     //when clicked on play time decrease Boredom progress-bar by one
@@ -108,22 +116,37 @@ const tamagotchi = {
 
     /* ***** Play Time(boredom) ***** */
     bored() {
-        setInterval(() => {
-                document.getElementById("boredom").innerText = `boredom: ${Math.ceil(pokemon.boredom /100 * 10)}`
-                document.getElementById("boredom").style.width = pokemon.boredom + "%";
-                pokemon.boredom++
-            }, 500),
-            document.querySelector(".playTimeBtn").addEventListener("click", () => {
-                pokemon.boredom--
-            })
-        if (pokemon.boredom == 1) {
-            document.getElementById("pichu").style.display = "none"
-            document.getElementById("pikachu").style.display = "none"
-            document.getElementById("raichu").style.display = "none"
-            document.getElementById("pokemonDead").style.display = "flex";
-         
+        let setIntervalAll = setInterval(() => {
+            document.getElementById("boredom").innerText = `boredom: ${Math.ceil(pokemon.boredom /100 * 10)}`
+            document.getElementById("boredom").style.width = pokemon.boredom + "%";
+            pokemon.boredom++
+            if (pokemon.boredom === 100) {
+                document.getElementById("pichu").style.display = "none"
+                document.getElementById("pikachu").style.display = "none"
+                document.getElementById("raichu").style.display = "none"
+                document.getElementById("pokemonDead").style.display = "flex";
+                clearInterval(setIntervalAll)
+     
+            }
+        }, 500)
+        document.querySelector(".playTimeBtn").addEventListener("click", () => {
+            pokemon.boredom--
+        })
+
+    },
+    ageUp() {
+        let setIntervalAll = setInterval(() => {
+            document.getElementById("age").innerText = `Age: ${pokemon.age}`
+            document.getElementById("age").style.width = pokemon.age + "%";
+            pokemon.age++
+        }, 1000)
+        if (pokemon.boredom === 100 || pokemon.sleep === 100 || pokemon.hunger === 100) {
+            clearInterval(setIntervalAll)
+
+
         }
     }
+
 }
 
 
@@ -180,7 +203,7 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 const startButton = {
     pokeballOpen() {
         document.querySelector(".btn-outline-danger").addEventListener("click", (event) => {
-           
+
             //playLightsOnVideo on click
             event.target.disabled = true;
             // document.getElementById("myVideo").style.display = "none"
@@ -189,16 +212,16 @@ const startButton = {
             tamagotchi.hungry();
             tamagotchi.sleepUp();
             tamagotchi.bored()
-          //After clicked on START LightsOn/Off toggle
+            //After clicked on START LightsOn/Off toggle
             let lightsOn = true;
             document.querySelector(".lightsOnOffBtn").addEventListener("click", (event) => {
                 lightsOn = !lightsOn;
                 if (lightsOn) {
                     document.querySelector("#lightsOnVideo").src = "./images/lights-off.mp4"
-                } else if(lightsOn ) {
+                } else if (lightsOn) {
                     document.querySelector("#lightsOffVideo").src = "./images/lights-on.mp4"
                 }
-console.log(event)
+                console.log(event)
             })
             //onClick start button hide closed-pokeball & dislay pichu after 8 seconds
             setTimeout(() => {
