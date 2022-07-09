@@ -180,26 +180,25 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 const startButton = {
     pokeballOpen() {
         document.querySelector(".btn-outline-danger").addEventListener("click", (event) => {
+           
             //playLightsOnVideo on click
             event.target.disabled = true;
             // document.getElementById("myVideo").style.display = "none"
-            // document.getElementById("lightsOnVideo").style.display = "flex"
+            // document.getElementById("lightsOnVideo").style.display = "flex"   
             tamagotchi.ageUp();
             tamagotchi.hungry();
             tamagotchi.sleepUp();
             tamagotchi.bored()
-                
-            
-            document.querySelector(".lightsOnOffBtn").addEventListener("click", () => {
+          //After clicked on START LightsOn/Off toggle
+            let lightsOn = true;
+            document.querySelector(".lightsOnOffBtn").addEventListener("click", (event) => {
                 lightsOn = !lightsOn;
                 if (lightsOn) {
-                    document.querySelector("#lightsOffVideo").src = "./images/lights-off.mp4"
-                    
-                } else if(lightsOn = !false ) {
                     document.querySelector("#lightsOnVideo").src = "./images/lights-off.mp4"
-                    
+                } else if(lightsOn ) {
+                    document.querySelector("#lightsOffVideo").src = "./images/lights-on.mp4"
                 }
-
+console.log(event)
             })
             //onClick start button hide closed-pokeball & dislay pichu after 8 seconds
             setTimeout(() => {
@@ -224,7 +223,6 @@ const startButton = {
 
 
 startButton.pokeballOpen();
-
 
 
 
