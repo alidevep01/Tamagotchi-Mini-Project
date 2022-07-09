@@ -126,7 +126,9 @@ img {
 
 #pichu,
 #pikachu,
-#raichu {
+#raichu,
+#pokemonDead
+ {
     position: absolute;
     width: 8rem;
     display: none;
@@ -218,15 +220,6 @@ img {
     text-align: center;
 }
 
-/* #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-} */
-
 /* *********************************** Responsive Section ************************************** */
 /* Mobile Small */
 @media only screen and (max-width: 320px) {
@@ -272,19 +265,6 @@ img {
 
     }
 
-    img {
-        animation: mymove 3s alternate-reverse infinite;
-    }
-
-    @keyframes mymove {
-        from {
-            right: 20px;
-        }
-
-        to {
-            right: 200px;
-        }
-    }
 
     #pichu,
     #pikachu,
@@ -351,19 +331,6 @@ img {
 
     }
 
-    img {
-        animation: mymove 3s alternate-reverse infinite;
-    }
-
-    @keyframes mymove {
-        from {
-            right: 20px;
-        }
-
-        to {
-            right: 200px;
-        }
-    }
     #pichu,
     #pikachu,
     #raichu {
@@ -434,19 +401,6 @@ img {
 
     }
 
-    img {
-        animation: mymove 3s alternate-reverse infinite;
-    }
-
-    @keyframes mymove {
-        from {
-            right: 20px;
-        }
-
-        to {
-            right: 200px;
-        }
-    }
     #pichu,
     #pikachu,
     #raichu {
@@ -470,10 +424,6 @@ img {
 
 @media only screen and (max-width: 768px) {
 
-    /* #myVideo {
-        top: 100px;
-        right: -500px;
-    } */
     .progress-bar-section {
         flex: 0 0 60%;
         max-width: 60%;
@@ -522,7 +472,7 @@ img {
     }
 
     img {
-        animation: mymove 4s alternate-reverse infinite;
+        animation: mymove 3s alternate-reverse infinite;
     }
 
     @keyframes mymove {
@@ -531,7 +481,7 @@ img {
         }
 
         to {
-            right: 600px;
+            right: 200px;
         }
     }
     #pichu,
