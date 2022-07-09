@@ -60,6 +60,7 @@ let sleepInterval;
 let hungerInterval;
 let boredInterval;
 let ageInterval;
+
 const tamagotchi = {
     //when clicked on lights on/off button toggle video src to lights-on/out video according
     //when clicked on lights on/off descrease sleep progress-bar by one
@@ -277,3 +278,4 @@ document.querySelector(".btn-outline-danger").addEventListener("click", (event) 
 
 //after evolved to raichu and and is alive for 10 seconds player wins(pause the video and show the result)
 /* ***************************************** Game Logic Section End ********************************************* */
+
